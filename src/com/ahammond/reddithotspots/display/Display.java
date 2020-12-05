@@ -38,6 +38,7 @@ public class Display extends JFrame {
         setPreferredSize(new Dimension(1600, 900));
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RedditHotspots");
 
         if (System.getProperty("os.name").toLowerCase().contains("mac")) {
             font = "Helvetica Neue";
@@ -125,6 +126,8 @@ public class Display extends JFrame {
         theme.setBackground(ColorPalette.getContentPanelBackground());
         theme.setForeground(ColorPalette.getSwitchThemeText());
         contentPanel.setBackground(ColorPalette.getContentPanelBackground());
+        contentPanel.hourPanel.setBackground(ColorPalette.getAxisBackground());
+        contentPanel.dayPanel.setBackground(ColorPalette.getAxisBackground());
         getContentPane().setBackground(ColorPalette.getMainBackground());
     }
 
