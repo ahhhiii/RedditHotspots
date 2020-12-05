@@ -4,6 +4,8 @@ import com.ahammond.reddithotspots.Core;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ContentPanel extends JPanel {
@@ -18,6 +20,7 @@ public class ContentPanel extends JPanel {
     }
 
     public JPanel hourPanel, dayPanel, elements;
+    public JButton togglePreview;
     public static int HORIZONTAL_WIDTH = 1445;
     public static int DAY_HEIGHT = 637;
 
@@ -47,6 +50,7 @@ public class ContentPanel extends JPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+
                 Graphics2D g2d = (Graphics2D) g;
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                 g2d.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
@@ -66,6 +70,22 @@ public class ContentPanel extends JPanel {
         elements = new JPanel();
         elements.setBackground(null);
         elements.setPreferredSize(new Dimension(HORIZONTAL_WIDTH, DAY_HEIGHT));
+
+        togglePreview = new JButton();
+        togglePreview.setPreferredSize(new Dimension(85, 98));
+        togglePreview.setBackground(ColorPalette.getAxisBackground());
+        togglePreview.setText("<html><center>Preview<br>Post</center></html>");
+        togglePreview.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        togglePreview.setBorder(null);
+        togglePreview.setFocusable(false);
+        togglePreview.setForeground(ColorPalette.getSwitchThemeText());
+        togglePreview.addActionListener(e -> {
+            for (Component comp : elements.getComponents()) {
+                if (comp instanceof ElementPanel) {
+                    ((ElementPanel) comp).showPreview();
+                }
+            }
+        });
     }
 
     private String intToTitle(int i) {
@@ -90,7 +110,11 @@ public class ContentPanel extends JPanel {
 
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
-                        .addComponent(dayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(
+                                layout.createParallelGroup()
+                                        .addComponent(dayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(togglePreview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        )
                         .addGroup(
                                 layout.createParallelGroup()
                                         .addComponent(hourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,7 +122,11 @@ public class ContentPanel extends JPanel {
         ));
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
-                        .addComponent(hourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(
+                                layout.createParallelGroup()
+                                        .addComponent(hourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(togglePreview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        )
                         .addGroup(
                                 layout.createParallelGroup()
                                         .addComponent(dayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

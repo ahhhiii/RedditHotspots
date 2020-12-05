@@ -9,10 +9,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class ElementPanel extends JPanel {
 
@@ -55,17 +53,16 @@ public class ElementPanel extends JPanel {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        if (count) {
+        if (preview) {
             paintCount(g2d);
         } else {
             paintImage(g2d);
         }
     }
 
-    private boolean count = true;
-
-    private void showPreview() {
-        count = !count;
+    private boolean preview = true;
+    public void showPreview() {
+        preview = !preview;
         repaint();
     }
 
@@ -93,9 +90,13 @@ public class ElementPanel extends JPanel {
         try {
             BufferedImage image = ImageIO.read(new URL(post.thumbnailURL).openStream());
 
-            g.translate(this.getWidth() / 2, this.getHeight() / 2);
-            g.translate(-image.getWidth(null) / 2, -image.getHeight(null) / 2);
-            g.drawImage(image, 0, 0, null);
+            //g.translate(this.getWidth() / 2, this.getHeight() / 2);
+            //g.translate(-image.getWidth(null) / 2, -image.getHeight(null) / 2);
+            double widthRatio = (double) getWidth() / image.getWidth();
+            double heightRatio = (double) getHeight() / image.getHeight();
+            double ratio = Math.max(widthRatio, heightRatio);
+
+            g.drawImage(image, 0, 0, (int) (image.getWidth() * ratio), (int) (image.getHeight() * ratio), null);
         } catch (IOException ignored) {}
     }
 

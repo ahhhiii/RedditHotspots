@@ -95,6 +95,7 @@ public class Display extends JFrame {
                 core.query(input.getText().substring(3));
             }
         }.start());
+        search.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         theme = new JButton() {
             @Override
@@ -116,6 +117,7 @@ public class Display extends JFrame {
             setColourTheme();
             revalidate();
         });
+        theme.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     private void setColourTheme() {
@@ -128,6 +130,11 @@ public class Display extends JFrame {
         contentPanel.setBackground(ColorPalette.getContentPanelBackground());
         contentPanel.hourPanel.setBackground(ColorPalette.getAxisBackground());
         contentPanel.dayPanel.setBackground(ColorPalette.getAxisBackground());
+        for (Component comp : contentPanel.elements.getComponents()) {
+            comp.setBackground(ColorPalette.getContentPanelBackground());
+        }
+        contentPanel.togglePreview.setBackground(ColorPalette.getAxisBackground());
+        contentPanel.togglePreview.setForeground(ColorPalette.getSwitchThemeText());
         getContentPane().setBackground(ColorPalette.getMainBackground());
     }
 

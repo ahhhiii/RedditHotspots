@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class RedditPost {
 
-    public String title, subreddit, thumbnailURL, imageURL;
+    public String title, subreddit, thumbnailURL, imageURL, postlink;
     public LocalDateTime creation;
     public int score;
 
