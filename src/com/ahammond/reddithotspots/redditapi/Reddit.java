@@ -11,6 +11,9 @@ import java.net.URLConnection;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Reddit {
 
@@ -19,10 +22,18 @@ public class Reddit {
         this.core=core;
     }
 
-    public RedditPost[] getTopPosts(int count, String subreddit) throws IOException {
+    HashSet<Long> duplicationCheck;
+    public ArrayList<RedditPost> getTopPosts(int count, String subreddit) throws IOException {
+        duplicationCheck = new HashSet<>();
+        ArrayList<RedditPost> list = getTopPosts(count, subreddit, "year");
+        list.addAll(getTopPosts(count, subreddit, "month"));
+        return list;
+    }
+
+    public ArrayList<RedditPost> getTopPosts(int count, String subreddit, String timeRange) throws IOException {
         System.out.println("Executing query on " + subreddit + " (count = " + count + ")");
 
-        URL url = new URL("https://www.reddit.com/r/" + subreddit + "/top/.json?t=month&limit=" + count);
+        URL url = new URL("https://www.reddit.com/r/" + subreddit + "/top/.json?t=" + timeRange + "&limit=" + count);
         URLConnection request = url.openConnection();
         request.setRequestProperty("Content-Type", "application/json; utf-8");
         request.setRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2");
@@ -51,9 +62,9 @@ public class Reddit {
         return toRedditPosts(json);
     }
 
-    private RedditPost[] toRedditPosts(JSONObject json) {
+    private ArrayList<RedditPost> toRedditPosts(JSONObject json) {
         JSONArray data = json.getJSONObject("data").getJSONArray("children");
-        RedditPost[] posts = new RedditPost[data.length()];
+        ArrayList<RedditPost> posts = new ArrayList<>();
 
         for (int i = 0; i < data.length(); i++) {
             JSONObject obj = data.getJSONObject(i).getJSONObject("data");
@@ -68,7 +79,12 @@ public class Reddit {
                 post.score = obj.getInt("score");
             } catch (JSONException ignore) {}
 
-            posts[i] = post;
+            if (post.creation == null || duplicationCheck.contains(post.creation.toEpochSecond(ZoneOffset.UTC))) {
+                continue;
+            }
+
+            duplicationCheck.add(post.creation.toEpochSecond(ZoneOffset.UTC));
+            posts.add(post);
         }
 
         System.out.println("Collected " + data.length() + " posts.");
