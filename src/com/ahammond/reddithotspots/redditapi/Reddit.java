@@ -26,7 +26,7 @@ public class Reddit {
     public ArrayList<RedditPost> getTopPosts(int count, String subreddit) throws IOException {
         duplicationCheck = new HashSet<>();
         ArrayList<RedditPost> list = getTopPosts(count, subreddit, "year");
-        list.addAll(getTopPosts(count, subreddit, "month"));
+        //list.addAll(getTopPosts(count, subreddit, "month"));
         return list;
     }
 
@@ -75,6 +75,7 @@ public class Reddit {
                 post.subreddit = obj.getString("subreddit");
                 post.thumbnailURL = obj.getString("thumbnail");
                 post.imageURL = obj.getString("url_overridden_by_dest");
+                post.postlink = "https://www.reddit.com" + obj.getString("permalink");
                 post.creation = LocalDateTime.ofInstant(Instant.ofEpochSecond(obj.getLong("created")), ZoneId.systemDefault());
                 post.score = obj.getInt("score");
             } catch (JSONException ignore) {}
