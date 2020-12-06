@@ -39,13 +39,19 @@ public class ElementDisplay extends JFrame {
     }
 
     public void loadImage() {
-        BufferedImage img = null;
+        BufferedImage img;
         try {
             img = ImageIO.read(new URL(post.imageURL));
         } catch (IOException ex) {
-            ex.printStackTrace();
+            panel.imgPanel.setText("Unable to load image.");
+
+            try {
+                img = ImageIO.read(new URL(post.thumbnailURL));
+            } catch (IOException exs) {
+                return;
+            }
         }
-        assert img != null;
+
         img = Scalr.resize(img, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_WIDTH, 613, 419);
         panel.imgPanel.setIcon(new ImageIcon(img));
     }
