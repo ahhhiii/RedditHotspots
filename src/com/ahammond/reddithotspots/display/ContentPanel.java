@@ -4,8 +4,6 @@ import com.ahammond.reddithotspots.Core;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ContentPanel extends JPanel {
@@ -21,8 +19,7 @@ public class ContentPanel extends JPanel {
 
     public JPanel hourPanel, dayPanel, elements;
     public JButton togglePreview;
-    public static int HORIZONTAL_WIDTH = 1445;
-    public static int DAY_HEIGHT = 637;
+    public static final int HORIZONTAL_WIDTH = 1445, DAY_HEIGHT = 637;
 
     private void initSubPanels() {
         dayPanel = new JPanel() {
@@ -156,10 +153,4 @@ public class ContentPanel extends JPanel {
         core.display.search.setText("SEARCH");
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(ColorPalette.getAxisBackground());
-        g2d.fillRect(0, 0, getWidth() - hourPanel.getWidth(), hourPanel.getHeight());
-    }
 }
