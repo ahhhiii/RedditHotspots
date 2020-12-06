@@ -1,8 +1,6 @@
 package com.ahammond.reddithotspots.display;
 
 import com.ahammond.reddithotspots.Core;
-import com.sun.corba.se.impl.orbutil.graph.Graph;
-import org.jdesktop.xswingx.PromptSupport;
 
 import javax.swing.*;
 import java.awt.*;
@@ -71,7 +69,6 @@ public class Display extends JFrame {
             }
         });
         input.setHorizontalAlignment(SwingConstants.CENTER);
-        PromptSupport.setPrompt("/r/Astrophotography", input);
 
         search = new JButton() {
             @Override
