@@ -1,5 +1,6 @@
 package com.ahammond.reddithotspots.display;
 
+import com.ahammond.reddithotspots.display.elementinfo.ElementDisplay;
 import com.ahammond.reddithotspots.redditapi.RedditPost;
 
 import javax.imageio.ImageIO;
@@ -17,7 +18,9 @@ public class ElementPanel extends JPanel {
     public ArrayList<RedditPost> posts;
     public int day, hour;
 
+    private ElementPanel INSTANCE;
     public ElementPanel() {
+        INSTANCE = this;
         this.posts = new ArrayList<>();
         initPanel();
     }
@@ -38,9 +41,28 @@ public class ElementPanel extends JPanel {
                     return;
                 }
 
-                showPreview();
+                openPanels = new ArrayList<>();
+                openCap = posts.size();
+                openCount = 0;
+                int i = (posts.size() / 2) * -20;
+                for (RedditPost post : posts) {
+                    ElementDisplay elementDisplay = new ElementDisplay(post, i, INSTANCE);
+                    openPanels.add(elementDisplay);
+                    i += 20;
+                }
             }
         });
+    }
+
+    ArrayList<ElementDisplay> openPanels;
+    int openCount = 0, openCap = 0;
+    public void alertOpened() {
+        openCount++;
+        if (openCount >= openCap) {
+            for (ElementDisplay display : openPanels) {
+                display.loadImage();
+            }
+        }
     }
 
     @Override

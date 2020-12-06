@@ -26,7 +26,7 @@ public class Display extends JFrame {
     public JTextField input;
     public JButton search;
     public JButton theme;
-    public String font = "Segoe UI";
+    public static String font = "Segoe UI";
 
     private void initFrame() {
         try {
