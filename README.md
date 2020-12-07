@@ -4,6 +4,12 @@ A program that shows the top posts of the last year, month and all-time and when
 
 ![Title](https://i.imgur.com/8MV1kLz.png)
 
+## Download & Installation
+
+### Native Java (8+)
+
+Download here: 
+
 ## Features
 
 Includes a quick preview:
