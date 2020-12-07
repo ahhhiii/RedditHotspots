@@ -4,6 +4,8 @@ A program that shows the top posts of the last year, month and all-time and when
 
 ![Title](https://i.imgur.com/8MV1kLz.png)
 
+## Features
+
 Includes a quick preview:
 
 ![Screenshot 2020-12-07 at 4.06.30 pm](https://i.gyazo.com/a83b4dc413918c69d9d8b0bbbf5bb174.png)
