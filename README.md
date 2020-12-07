@@ -11,6 +11,7 @@ A program that shows the top posts of the last year, month and all-time and when
 1) If you don't have Java 8 or above, download [here](https://www.java.com/en/download/manual.jsp)
 2) Download here: [builds/RedditHotspots.jar](https://github.com/bruhitsalex/RedditHotspots/raw/master/builds/RedditHotspots.jar)
 3) Open
+
 *(Note for Mac users: Catalina/Big Sur might throw a fit about running a file from an unknown developer, if so then: Try to open the app, then go to System Settings -> Security & Privacy -> General -> click 'Allow' or 'Open anyway' (below 'App-Downloads allowed from'))*
 
 ## Features
