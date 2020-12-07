@@ -13,3 +13,7 @@ Includes a quick preview:
 And you can open up a post to see that day and times top posts:
 
 ![Screenshot 2020-12-07 at 4.07.27 pm](https://i.gyazo.com/904ce708bca5f615b3512704d98b4684.png)
+
+Also includes light mode if you want to burn your retinas:
+
+![Screenshot-bruh](https://i.gyazo.com/a5724b84f5220eaed489d5e7823ce023.png)
