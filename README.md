@@ -8,7 +8,9 @@ A program that shows the top posts of the last year, month and all-time and when
 
 ### Native Java (8+)
 
-Download here: 
+1) If you don't have Java 8 or above, download [here](https://www.java.com/en/download/manual.jsp)
+2) Download here: [builds/RedditHotspots.jar](https://github.com/bruhitsalex/RedditHotspots/raw/master/builds/RedditHotspots.jar)
+3) Open
 
 ## Features
 
