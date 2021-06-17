@@ -1,6 +1,6 @@
 # RedditHotspots
 
-A program that shows the top posts of the last year, month and all-time and when they were posted so you can find out when it's best to post something on a specific subreddit.
+A program that shows the top posts of the last year and when they were posted so you can find out when it's best to post something on a specific subreddit.
 
 ![Title](https://i.imgur.com/8MV1kLz.png)
 
