@@ -26,7 +26,8 @@ public class Reddit {
     public ArrayList<RedditPost> getTopPosts(int count, String subreddit) throws IOException {
         duplicationCheck = new HashSet<>();
         ArrayList<RedditPost> list = getTopPosts(count, subreddit, "month");
-        //list.addAll(getTopPosts(count, subreddit, "year"));
+        list.addAll(getTopPosts(count, subreddit, "year"));
+        list.addAll(getTopPosts(count, subreddit, "all"));
         return list;
     }
 

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RedditHotspots:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RedditHotspots_jar</output-path>
+    <root id="archive" name="RedditHotspots.jar">
+      <element id="module-output" name="RedditHotspots" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20201115/json-20201115.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/imgscalr/imgscalr-lib/4.2/imgscalr-lib-4.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

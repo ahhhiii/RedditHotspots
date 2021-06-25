@@ -24,6 +24,7 @@ public class Core {
             return;
         }
 
+        // Adding data
         display.alert("Tabling posts...");
         ArrayList<ArrayList<ElementPanel>> table = tableData(posts);
         display.contentPanel.setElementsAndShow(table);
