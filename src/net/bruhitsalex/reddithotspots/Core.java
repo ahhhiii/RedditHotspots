@@ -1,14 +1,13 @@
-package com.ahammond.reddithotspots;
+package net.bruhitsalex.reddithotspots;
 
-import com.ahammond.reddithotspots.display.Display;
-import com.ahammond.reddithotspots.display.ElementManager;
-import com.ahammond.reddithotspots.display.ElementPanel;
-import com.ahammond.reddithotspots.redditapi.Reddit;
-import com.ahammond.reddithotspots.redditapi.RedditPost;
+import net.bruhitsalex.reddithotspots.display.Display;
+import net.bruhitsalex.reddithotspots.display.ElementManager;
+import net.bruhitsalex.reddithotspots.display.ElementPanel;
+import net.bruhitsalex.reddithotspots.redditapi.Reddit;
+import net.bruhitsalex.reddithotspots.redditapi.RedditPost;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Core {
 

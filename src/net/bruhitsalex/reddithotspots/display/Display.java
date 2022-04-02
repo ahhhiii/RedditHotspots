@@ -1,6 +1,6 @@
-package com.ahammond.reddithotspots.display;
+package net.bruhitsalex.reddithotspots.display;
 
-import com.ahammond.reddithotspots.Core;
+import net.bruhitsalex.reddithotspots.Core;
 
 import javax.swing.*;
 import java.awt.*;

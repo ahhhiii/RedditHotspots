@@ -1,4 +1,4 @@
-package com.ahammond.reddithotspots.display;
+package net.bruhitsalex.reddithotspots.display;
 
 import java.awt.*;
 

@@ -1,4 +1,4 @@
-package com.ahammond.reddithotspots;
+package net.bruhitsalex.reddithotspots;
 
 public class Launcher {
 

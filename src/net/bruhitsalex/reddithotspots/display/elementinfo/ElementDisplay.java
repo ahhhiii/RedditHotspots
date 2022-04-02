@@ -1,8 +1,8 @@
-package com.ahammond.reddithotspots.display.elementinfo;
+package net.bruhitsalex.reddithotspots.display.elementinfo;
 
-import com.ahammond.reddithotspots.display.ColorPalette;
-import com.ahammond.reddithotspots.display.ElementPanel;
-import com.ahammond.reddithotspots.redditapi.RedditPost;
+import net.bruhitsalex.reddithotspots.display.ColorPalette;
+import net.bruhitsalex.reddithotspots.display.ElementPanel;
+import net.bruhitsalex.reddithotspots.redditapi.RedditPost;
 import org.imgscalr.Scalr;
 
 import javax.imageio.ImageIO;

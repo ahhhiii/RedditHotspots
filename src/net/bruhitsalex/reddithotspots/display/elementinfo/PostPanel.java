@@ -1,8 +1,8 @@
-package com.ahammond.reddithotspots.display.elementinfo;
+package net.bruhitsalex.reddithotspots.display.elementinfo;
 
-import com.ahammond.reddithotspots.display.ColorPalette;
-import com.ahammond.reddithotspots.display.Display;
-import com.ahammond.reddithotspots.redditapi.RedditPost;
+import net.bruhitsalex.reddithotspots.display.ColorPalette;
+import net.bruhitsalex.reddithotspots.display.Display;
+import net.bruhitsalex.reddithotspots.redditapi.RedditPost;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;

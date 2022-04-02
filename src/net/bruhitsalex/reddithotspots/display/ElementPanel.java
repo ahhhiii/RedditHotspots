@@ -1,7 +1,7 @@
-package com.ahammond.reddithotspots.display;
+package net.bruhitsalex.reddithotspots.display;
 
-import com.ahammond.reddithotspots.display.elementinfo.ElementDisplay;
-import com.ahammond.reddithotspots.redditapi.RedditPost;
+import net.bruhitsalex.reddithotspots.display.elementinfo.ElementDisplay;
+import net.bruhitsalex.reddithotspots.redditapi.RedditPost;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

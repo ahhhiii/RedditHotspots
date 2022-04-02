@@ -1,6 +1,6 @@
-package com.ahammond.reddithotspots.redditapi;
+package net.bruhitsalex.reddithotspots.redditapi;
 
-import com.ahammond.reddithotspots.Core;
+import net.bruhitsalex.reddithotspots.Core;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

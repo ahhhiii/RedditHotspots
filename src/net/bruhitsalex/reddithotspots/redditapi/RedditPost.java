@@ -1,4 +1,4 @@
-package com.ahammond.reddithotspots.redditapi;
+package net.bruhitsalex.reddithotspots.redditapi;
 
 import java.time.LocalDateTime;
 
